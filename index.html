@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Excel</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-top">
+        <div class="sheet-heading">Sheet 1</div>
+        <div class="toolbar-options">
+          <ul class="toolbar-options-ul">
+            <li class="toolbar-options-li">
+              <div class="li-heading active-toolbar-li">Home</div>
+            </li>
+            <li class="toolbar-options-li">Insert</li>
+            <li class="toolbar-options-li">Draw</li>
+            <li class="toolbar-options-li">Page Layout</li>
+            <li class="toolbar-options-li">Formulas</li>
+            <li class="toolbar-options-li">Data</li>
+            <li class="toolbar-options-li">Review</li>
+            <li class="toolbar-options-li">View</li>
+            <li class="toolbar-options-li">Acrobat</li>
+          </ul>
+          <div class="editing-tools">
+            <div class="paste-icon-div">
+              <img src="./Assets/paste-100.png" alt="paste icon" />
+            </div>
+            <div class="cut-copy-format-div">
+              <div class="cut ccf-div">
+                <img src="./Assets/cut.png" alt="cut icon" />
+                <p>Cut</p>
+              </div>
+              <div class="copy ccf-div">
+                <img src="./Assets/copy.png" alt="copy icon" />
+                <p>Copy</p>
+              </div>
+              <div class="format ccf-div">
+                <img src="./Assets/format.png" alt="format icon" width="24px" height="24px" />
+                <p>Format</p>
+              </div>
+            </div>
+            <div class="text-styling-container">
+              <div class="font-family">
+                <select id="select" class="input">
+                  <option value="Times New Roman" elected="selected">
+                    Arimo
+                  </option>
+                  <option value="Sans Serif">Sans Serif</option>
+                  <option value="Monospace">Monospace</option>
+                  <option value="Arial">Arial</option>
+                  <option value="fantasy">Fantasy</option>
+                  <option value="cursive">cursive</option>
+                </select>
+              </div>
+              <div class="font-size">
+                <select id="select-font-size" class="input">
+                  <option value="14" elected="selected">14</option>
+                  <option value="16">16</option>
+                  <option value="18">18</option>
+                  <option value="20">20</option>
+                  <option value="22">22</option>
+                  <option value="24">24</option>
+                  <option value="26">26</option>
+                  <option value="28">28</option>
+                  <option value="30">30</option>
+                  <option value="32">32</option>
+                </select>
+              </div>
+              <div class="text-Styling">
+                <div class="bold-text text-style-ele">
+                  <strong>B</strong>
+                </div>
+                <div class="italic-text text-style-ele">
+                  <strong>I</strong>
+                </div>
+                <div class="underline-text text-style-ele">
+                  <strong><u>U</u></strong>
+                </div>
+              </div>
+            </div>
+            <div class="text-styling-container">
+              <div class="color-input">
+                <label for="hexcolor">Text</label>
+                <input type="color" name="hexcolor" id="hexcolorInput" />
+              </div>
+              <div class="color-input-bg color-input">
+                <label for="hexcolor">BG</label>
+                <input type="color" name="hexcolor" id="hexcolorInputBg" />
+              </div>
+            </div>
+            <div class="text-styling-container">
+              <div class="align-text-div">
+                <div class="align-left align-item">
+                  <i class="fa-solid fa-align-left"></i>
+                </div>
+                <div class="align-middle align-item">
+                  <i class="fa-solid fa-align-center"></i>
+                </div>
+                <div class="align-right align-item">
+                  <i class="fa-solid fa-align-right"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Reusing the existing styles of align-text-div to upload and download btns -->
+            <div class="text-styling-container">
+              <div class="for-upload-download align-text-div">
+                <div class="download-btn align-left align-item">
+                  <i class="fa-solid fa-cloud-arrow-down"></i>
+                </div>
+                <div class="upload-btn align-middle align-item">
+                  <label for="file-input">
+                    <i class="fa-solid fa-cloud-arrow-up"></i
+                  ></label>
+                  <input
+                    type="file"
+                    name="fileInput"
+                    id="file-input"
+                    accept=".json"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="save-add-div">
+              <div class="save-add-btns">
+                <button id="save-sheet-btn" class="btn">Save Sheet</button>
+                <button id="add-sheet-btn" class="btn">Add Sheet</button>
+                <button id="delete-sheet-btn" class="btn">Delete Sheet</button>
+              </div>
+              <br />
+              <div class="button-container">
+                <button
+                  id="S1"
+                  class="btn sheet-btns"
+                  onclick="viewSheet(event)"
+                >
+                  Sheet 1
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="formulation-and-current-cell-div">
+          <div class="current-cell">
+            <!-- <input type="text" name="1A" id="currDiv" value="A1" /> -->
+            <!-- <strong>A1</strong> -->
+          </div>
+          <div class="formulations">
+            <p>fx</p>
+            <input type="text" name="fx" id="formulation" />
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <table id="table">
+          <thead id="thead">
+            <tr id="head-tr">
+              <th class="emty-cell"></th>
+              <!-- <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>A</th>
+              <th>A</th>
+              <th>A</th> -->
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
